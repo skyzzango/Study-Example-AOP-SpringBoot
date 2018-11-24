@@ -17,7 +17,7 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
-public class AopApplication implements CommandLineRunner{
+public class AopApplication implements CommandLineRunner {
 
 	@Autowired
 	private BoardService boardService;
@@ -33,20 +33,20 @@ public class AopApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		for(int i=1;i<=100;i++){
-			boardRepository.save(new Board(i+"번째 게시글의 제목", i+"번째 게시글의 내용"));
-			userRepository.save(new User(i+"@email.com", i+"번째 사용자"));
+		for (int i = 1; i <= 100; i++) {
+			boardRepository.save(new Board(i + "번째 게시글의 제목", i + "번째 게시글의 내용"));
+			userRepository.save(new User(i + "@email.com", i + "번째 사용자"));
 		}
 	}
 
 	@GetMapping("/boards")
 	public List<Board> getBoards() {
-		return boardService.getBoards();
+		return boardService.getDataAll();
 	}
 
 	@GetMapping("/users")
 	public List<User> getUsers() {
-		return userService.getUsers();
+		return userService.getDataAll();
 	}
 
 	public static void main(String[] args) {
