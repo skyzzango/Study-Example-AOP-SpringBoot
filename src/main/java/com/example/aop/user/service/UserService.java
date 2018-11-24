@@ -14,6 +14,11 @@ public class UserService {
 	private UserRepository repository;
 
 	public List<User> getUsers() {
-		return repository.findAll();
+		long start = System.currentTimeMillis();
+		List<User> users = repository.findAll();
+		long end = System.currentTimeMillis();
+
+		System.out.println("수행 시간 : "+ (end - start));
+		return users;
 	}
 }
