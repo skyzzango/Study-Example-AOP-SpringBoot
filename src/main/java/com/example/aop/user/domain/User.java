@@ -1,14 +1,12 @@
 package com.example.aop.user.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idx;
 
 	@Column
@@ -47,5 +45,14 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"idx=" + idx +
+				", email='" + email + '\'' +
+				", name='" + name + '\'' +
+				'}';
 	}
 }
