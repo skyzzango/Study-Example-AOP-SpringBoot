@@ -41,12 +41,12 @@ public class AopApplication implements CommandLineRunner {
 
 	@GetMapping("/boards")
 	public List<Board> getBoards() {
-		return boardService.getDataAll();
+		return boardService.getBoards();
 	}
 
 	@GetMapping("/users")
 	public List<User> getUsers() {
-		return userService.getDataAll();
+		return userService.getUsers();
 	}
 
 	public static void main(String[] args) {
